@@ -1,27 +1,28 @@
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Search, Menu } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <header className="bg-background/80 backdrop-blur-md border-b border-border sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-8">
-          <div className="text-2xl font-bold bg-accent-gradient bg-clip-text text-transparent">
+          <Link to="/" className="text-2xl font-bold bg-accent-gradient bg-clip-text text-transparent">
             TechStore
-          </div>
+          </Link>
           <nav className="hidden md:flex items-center gap-6">
-            <a href="#" className="text-foreground hover:text-primary transition-colors">
+            <Link to="/products" className="text-foreground hover:text-primary transition-colors">
               Products
-            </a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors">
+            </Link>
+            <Link to="/gaming" className="text-foreground hover:text-primary transition-colors">
               Gaming
-            </a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors">
+            </Link>
+            <Link to="/accessories" className="text-foreground hover:text-primary transition-colors">
               Accessories
-            </a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors">
+            </Link>
+            <Link to="/support" className="text-foreground hover:text-primary transition-colors">
               Support
-            </a>
+            </Link>
           </nav>
         </div>
         
@@ -35,12 +36,14 @@ const Header = () => {
             />
           </div>
           
-          <Button variant="ghost" size="icon" className="relative">
-            <ShoppingCart className="h-5 w-5" />
-            <span className="absolute -top-1 -right-1 h-5 w-5 bg-accent rounded-full text-xs flex items-center justify-center text-accent-foreground font-semibold">
-              3
-            </span>
-          </Button>
+          <Link to="/cart">
+            <Button variant="ghost" size="icon" className="relative">
+              <ShoppingCart className="h-5 w-5" />
+              <span className="absolute -top-1 -right-1 h-5 w-5 bg-accent rounded-full text-xs flex items-center justify-center text-accent-foreground font-semibold">
+                3
+              </span>
+            </Button>
+          </Link>
           
           <Button variant="ghost" size="icon" className="md:hidden">
             <Menu className="h-5 w-5" />
