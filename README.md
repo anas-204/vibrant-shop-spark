@@ -1,73 +1,75 @@
-# Welcome to your Lovable project
+# Vibrant Shop Spark ⚡️🛍️
 
-## Project info
+Welcome to **Vibrant Shop Spark**! A modern, vibrant e-commerce application built with React, Vite, and Tailwind CSS. 
 
-**URL**: https://lovable.dev/projects/84c4fa76-7b29-40d4-b65f-81ce027db565
+This project aims to provide a fast, responsive, and beautiful shopping experience with seamless state management.
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+- **Modern UI/UX:** Styled using Tailwind CSS and `shadcn-ui` components for a premium look and feel.
+- **Product Catalog:** Browse products across various categories like Gaming, Accessories, and more.
+- **Shopping Cart:** Add, remove, and adjust quantities of products effortlessly.
+- **Persistent Storage:** The shopping cart is powered by the Context API and synced with `localStorage`, meaning your items stay in the cart even if you refresh the page!
+- **Notifications:** Informative toast notifications when adding/removing items from your cart (including quick "Go to Cart" action buttons).
+- **Responsive Design:** Optimized for all device sizes.
 
-**Use Lovable**
+## 🛠️ Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/84c4fa76-7b29-40d4-b65f-81ce027db565) and start prompting.
+- **Framework:** React 18
+- **Build Tool:** Vite
+- **Language:** TypeScript
+- **Routing:** React Router v6
+- **Styling:** Tailwind CSS & shadcn-ui
+- **State Management:** React Context API + Local Storage
+- **Data Fetching:** TanStack Query (React Query)
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📦 Getting Started
 
-**Use your preferred IDE**
+Follow these steps to set up the project locally.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Prerequisites
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 
-Follow these steps:
+### Installation
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/anas-204/vibrant-shop-spark.git
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2. **Navigate to the project directory:**
+   ```bash
+   cd vibrant-shop-spark
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+3. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+4. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
 
-**Edit a file directly in GitHub**
+5. **Open the app:**
+   Visit `http://localhost:5173` in your browser.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📂 Project Structure
 
-**Use GitHub Codespaces**
+- `src/components`: Reusable UI components (buttons, headers, product cards, etc.)
+- `src/pages`: Main application pages (Home, Products, Cart, Checkout, etc.)
+- `src/context`: React Context providers (like `CartContext.tsx` for state management)
+- `src/data`: Static mock data for products
+- `src/hooks`: Custom React hooks (like the toast hook)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🤝 Contributing
 
-## What technologies are used for this project?
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/84c4fa76-7b29-40d4-b65f-81ce027db565) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
