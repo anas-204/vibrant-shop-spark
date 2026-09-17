@@ -33,21 +33,16 @@ const Hero = () => {
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="group"
-              onClick={() => {
-                const { toast } = require('@/hooks/use-toast');
-                toast({
-                  title: "Coming Soon",
-                  description: "Our product demo video is currently in production!",
-                });
-              }}
-            >
-              <Play className="mr-2 h-5 w-5" />
-              Watch Demo
-            </Button>
+            <a href="/demo.mp4" target="_blank" rel="noopener noreferrer">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="group"
+              >
+                <Play className="mr-2 h-5 w-5" />
+                Watch Demo
+              </Button>
+            </a>
           </div>
           
           <div className="flex items-center gap-8 mt-12 text-sm text-muted-foreground">
