@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import ProductCard from "@/components/ProductCard";
-import { Gamepad2, Trophy, Users, Zap } from "lucide-react";
+import { Gamepad2, Trophy, Users, Zap, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 import mouseImage from "@/assets/product-mouse.jpg";
 import keyboardImage from "@/assets/product-keyboard.jpg";
 import heroImage from "@/assets/hero-headphones.jpg";
@@ -60,6 +61,12 @@ const Gaming = () => {
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-hero-gradient opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
+          <Link to="/">
+            <Button variant="outline" className="mb-4 flex items-center gap-2 text-muted-foreground hover:text-foreground border-border/50 bg-background/50 backdrop-blur-sm">
+              <ArrowLeft className="h-4 w-4" />
+              Back to Home
+            </Button>
+          </Link>
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-block bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-semibold mb-6">
               🎮 Gaming Collection

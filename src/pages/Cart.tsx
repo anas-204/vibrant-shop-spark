@@ -1,53 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Minus, Plus, Trash2, ArrowLeft, ShoppingBag } from "lucide-react";
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import mouseImage from "@/assets/product-mouse.jpg";
-import keyboardImage from "@/assets/product-keyboard.jpg";
-
-interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  quantity: number;
-}
+import { useCart } from "@/context/CartContext";
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([
-    {
-      id: "1",
-      name: "RGB Gaming Mouse Pro",
-      price: 79.99,
-      image: mouseImage,
-      quantity: 1
-    },
-    {
-      id: "2", 
-      name: "Mechanical Gaming Keyboard",
-      price: 149.99,
-      image: keyboardImage,
-      quantity: 2
-    }
-  ]);
+  const { cart: cartItems, updateQuantity, removeFromCart: removeItem } = useCart();
 
-  const updateQuantity = (id: string, newQuantity: number) => {
-    if (newQuantity === 0) {
-      setCartItems(items => items.filter(item => item.id !== id));
-    } else {
-      setCartItems(items => 
-        items.map(item => 
-          item.id === id ? { ...item, quantity: newQuantity } : item
-        )
-      );
-    }
+  const getNumericPrice = (priceStr: string | number) => {
+    if (typeof priceStr === 'number') return priceStr;
+    return parseFloat(priceStr.replace(/[^0-9.]/g, '')) || 0;
   };
 
-  const removeItem = (id: string) => {
-    setCartItems(items => items.filter(item => item.id !== id));
-  };
-
-  const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const subtotal = cartItems.reduce((sum, item) => sum + (getNumericPrice(item.price) * item.quantity), 0);
   const shipping = subtotal > 100 ? 0 : 9.99;
   const tax = subtotal * 0.08;
   const total = subtotal + shipping + tax;
@@ -78,8 +42,9 @@ const Cart = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="flex items-center gap-4 mb-8">
           <Link to="/">
-            <Button variant="ghost" size="icon">
-              <ArrowLeft className="h-5 w-5" />
+            <Button variant="outline" className="flex items-center gap-2 text-muted-foreground hover:text-foreground border-border/50 bg-background/50 backdrop-blur-sm">
+              <ArrowLeft className="h-4 w-4" />
+              Back
             </Button>
           </Link>
           <h1 className="text-3xl font-bold">Shopping Cart</h1>
@@ -95,14 +60,14 @@ const Cart = () => {
                   <div className="flex gap-4">
                     <img
                       src={item.image}
-                      alt={item.name}
+                      alt={item.title}
                       className="w-24 h-24 object-cover rounded-lg bg-card-gradient"
                     />
                     
                     <div className="flex-1">
-                      <h3 className="font-semibold text-lg mb-2">{item.name}</h3>
+                      <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
                       <p className="text-2xl font-bold text-primary mb-4">
-                        ${item.price.toFixed(2)}
+                        ${getNumericPrice(item.price).toFixed(2)}
                       </p>
                       
                       <div className="flex items-center justify-between">
@@ -172,9 +137,11 @@ const Cart = () => {
                 </div>
               </div>
 
-              <Button variant="hero" size="lg" className="w-full mb-4">
-                Proceed to Checkout
-              </Button>
+              <Link to="/checkout" className="w-full block mb-4">
+                <Button variant="hero" size="lg" className="w-full">
+                  Proceed to Checkout
+                </Button>
+              </Link>
               
               <Link to="/products">
                 <Button variant="outline" size="lg" className="w-full">

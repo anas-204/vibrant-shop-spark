@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-headphones.jpg";
 
 const Hero = () => {
@@ -26,11 +27,24 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button variant="hero" size="lg" className="group">
-              Shop Now
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button variant="outline" size="lg" className="group">
+            <Link to="/products">
+              <Button variant="hero" size="lg" className="group">
+                Shop Now
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="group"
+              onClick={() => {
+                const { toast } = require('@/hooks/use-toast');
+                toast({
+                  title: "Coming Soon",
+                  description: "Our product demo video is currently in production!",
+                });
+              }}
+            >
               <Play className="mr-2 h-5 w-5" />
               Watch Demo
             </Button>

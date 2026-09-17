@@ -1,34 +1,9 @@
 import ProductCard from "./ProductCard";
-import mouseImage from "@/assets/product-mouse.jpg";
-import keyboardImage from "@/assets/product-keyboard.jpg";
-import monitorImage from "@/assets/product-monitor.jpg";
+import { products } from "@/data/products";
 
 const FeaturedProducts = () => {
-  const products = [
-    {
-      image: mouseImage,
-      title: "RGB Gaming Mouse Pro",
-      price: "$79.99",
-      originalPrice: "$99.99",
-      rating: 4.8,
-      reviews: 1247
-    },
-    {
-      image: keyboardImage,
-      title: "Mechanical Gaming Keyboard",
-      price: "$149.99",
-      rating: 4.9,
-      reviews: 856
-    },
-    {
-      image: monitorImage,
-      title: "Ultra-Wide Gaming Monitor",
-      price: "$399.99",
-      originalPrice: "$459.99",
-      rating: 4.7,
-      reviews: 432
-    }
-  ];
+  // Select top 3 products based on rating for featured
+  const featuredProducts = products.sort((a, b) => b.rating - a.rating).slice(0, 3);
 
   return (
     <section className="py-20 bg-muted/20">
@@ -47,7 +22,7 @@ const FeaturedProducts = () => {
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
+          {featuredProducts.map((product, index) => (
             <div 
               key={index}
               className="animate-fade-in"

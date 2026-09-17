@@ -1,70 +1,14 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ProductCard from "@/components/ProductCard";
-import { Search, Filter, Grid, List } from "lucide-react";
-import mouseImage from "@/assets/product-mouse.jpg";
-import keyboardImage from "@/assets/product-keyboard.jpg";
-import monitorImage from "@/assets/product-monitor.jpg";
-import heroImage from "@/assets/hero-headphones.jpg";
+import { Search, Filter, Grid, List, ArrowLeft } from "lucide-react";
+import { products } from "@/data/products";
 
 const Products = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
-
-  const products = [
-    {
-      image: mouseImage,
-      title: "RGB Gaming Mouse Pro",
-      price: "$79.99",
-      originalPrice: "$99.99",
-      rating: 4.8,
-      reviews: 1247,
-      category: "accessories"
-    },
-    {
-      image: keyboardImage,
-      title: "Mechanical Gaming Keyboard",
-      price: "$149.99",
-      rating: 4.9,
-      reviews: 856,
-      category: "accessories"
-    },
-    {
-      image: monitorImage,
-      title: "Ultra-Wide Gaming Monitor",
-      price: "$399.99",
-      originalPrice: "$459.99",
-      rating: 4.7,
-      reviews: 432,
-      category: "monitors"
-    },
-    {
-      image: heroImage,
-      title: "Premium Gaming Headset",
-      price: "$199.99",
-      rating: 4.9,
-      reviews: 2134,
-      category: "audio"
-    },
-    {
-      image: mouseImage,
-      title: "Wireless Gaming Mouse",
-      price: "$59.99",
-      originalPrice: "$79.99",
-      rating: 4.6,
-      reviews: 892,
-      category: "accessories"
-    },
-    {
-      image: keyboardImage,
-      title: "RGB Mechanical Keyboard Pro",
-      price: "$199.99",
-      rating: 4.8,
-      reviews: 623,
-      category: "accessories"
-    }
-  ];
 
   const categories = [
     { id: 'all', name: 'All Products' },
@@ -84,6 +28,12 @@ const Products = () => {
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
+          <Link to="/">
+            <Button variant="outline" className="mb-4 flex items-center gap-2 text-muted-foreground hover:text-foreground border-border/50 bg-background/50 backdrop-blur-sm">
+              <ArrowLeft className="h-4 w-4" />
+              Back to Home
+            </Button>
+          </Link>
           <h1 className="text-4xl font-bold mb-4">
             All <span className="bg-accent-gradient bg-clip-text text-transparent">Products</span>
           </h1>
@@ -160,7 +110,7 @@ const Products = () => {
               className="animate-fade-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <ProductCard {...product} />
+              <ProductCard {...product} viewMode={viewMode} />
             </div>
           ))}
         </div>

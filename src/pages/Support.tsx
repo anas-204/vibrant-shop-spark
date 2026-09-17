@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Phone, Mail, Clock, Shield, Truck, RotateCcw, HelpCircle } from "lucide-react";
+import { MessageCircle, Phone, Mail, Clock, Shield, Truck, RotateCcw, HelpCircle, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Support = () => {
   const supportOptions = [
@@ -81,6 +82,12 @@ const Support = () => {
       {/* Hero Section */}
       <section className="py-20 bg-muted/10">
         <div className="container mx-auto px-4">
+          <Link to="/">
+            <Button variant="outline" className="mb-4 flex items-center gap-2 text-muted-foreground hover:text-foreground border-border/50 bg-background/50 backdrop-blur-sm">
+              <ArrowLeft className="h-4 w-4" />
+              Back to Home
+            </Button>
+          </Link>
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-block bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-semibold mb-6">
               🛟 Customer Support
